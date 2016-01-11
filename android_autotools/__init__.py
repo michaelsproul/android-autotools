@@ -149,6 +149,8 @@ class Toolchain:
             cflags.append('-O3')
         else:
             cflags.append('-g')
+            # Link Android logging library, usable via __android_log_print.
+            ldflags.append('-llog')
 
         if self.cpp:
             cxxflags = copy.copy(config['cxxflags'])
